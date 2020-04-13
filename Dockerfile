@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1.201
 
 # Update repository
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
@@ -12,7 +12,7 @@ RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add 
 RUN apt-get install nodejs -y && \
     apt-get install yarn -y && \
     curl -L https://npmjs.org/install.sh | sh && \
-    echo n | npm install -g @angular/cli@7.3.4
+    echo n | npm install -g @angular/cli@9.1.1
 
 # Kubernetes and helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh && \
