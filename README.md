@@ -1,7 +1,7 @@
 # docker-dotnetcore-angular
 
 Based on
-- `dotnet core sdk 3.1.201`
-- `@angular/cli@9.1.3`
-- `kubectl 1.18.1`
-- `helm 3.2.0`
+- `dotnet core sdk 3.1.401`
+- `@angular/cli@10.0.8`
+- `kubectl v1.19.0`
+- `helm 3.3.1`
