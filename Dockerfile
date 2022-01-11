@@ -5,6 +5,7 @@ RUN apt-get update && \
     apt-get install nodejs -y && \
     apt-get install yarn -y && \
     apt-get install ssh -y && \
+    apt-get install nuget -y && \
     curl -L https://npmjs.org/install.sh | sh && \
     echo n | npm install -g @angular/cli@11
 
