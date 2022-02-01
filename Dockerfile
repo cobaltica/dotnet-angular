@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0
 # Angular cli
 RUN apt-get update && \
     apt-get install nodejs -y && \
-    apt-get install yarn -y && \
     apt-get install ssh -y && \
     apt-get install nuget -y && \
     curl -L https://npmjs.org/install.sh | sh && \
-    echo n | npm install -g @angular/cli@11
+    echo n | npm install -g @angular/cli@latest && \
+    npm install -g yarn
 
 # Kubernetes and helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh && \
