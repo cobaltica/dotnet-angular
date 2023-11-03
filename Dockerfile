@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0
+FROM mcr.microsoft.com/dotnet/sdk:7.0
 
 RUN curl -fsSL https://deb.nodesource.com/setup_19.x | sh
 
@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install ssh -y && \
     apt-get install nuget -y && \
     apt-get install lftp -y && \
+    apt-get install openjdk-11-jre -y && \
     curl -L https://npmjs.org/install.sh | sh && \
     echo n | npm install -g @angular/cli@latest && \
     npm install -g yarn
