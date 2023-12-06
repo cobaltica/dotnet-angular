@@ -1,16 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:6.0
+FROM mcr.microsoft.com/dotnet/sdk:8.0
 
-RUN apt-get install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_16.x |  bash - && \
-    apt-get install -y nodejs && \
+ENV NODE_MAJOR=20
+
+RUN apt-get update && \
+    apt-get install -y ca-certificates curl gnupg ssh curl nuget lftp git
+
+RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
+    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_$NODE_MAJOR.x nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
+    apt-get update && apt-get install nodejs -y && \
     npm install -g @angular/cli && \
     npm install -g yarn
-
-RUN apt-get install ssh -y && \
-    apt-get install nuget -y && \
-    apt-get install lftp -y && \
-    apt-get install curl -y && \
-    apt-get install git -y 
 
 # Kubernetes and helm
 RUN curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh && \

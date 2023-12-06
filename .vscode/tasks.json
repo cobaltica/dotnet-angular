@@ -1,0 +1,23 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "docker",
+            "type": "process",
+            "args": [
+                "build",
+                "--pull",
+                "--rm",
+                "-f",
+                "Dockerfile",
+                "-t",
+                "dotnetangular:latest",
+                "--platform",
+                "linux/amd64",
+                "."
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
